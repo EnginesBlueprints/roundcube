@@ -14,68 +14,50 @@
         "minor": 1,
         "level": "rc",
         "patch": 0
-      },
-      "timestamp": null
+      }
     },
     "software": {
       "display": {
         "title": "roundcube webmail",
         "label": "roundcube",
-        "version": "",
-        "description": "Roundcube webmail...\r\n\r\n...is a browser-based multilingual IMAP client with an application-like user interface. It provides full functionality you expect from an email client, including MIME support, address book, folder manipulation, message searching and spell checking.",
-        "url": ""
+        "description": "Roundcube webmail...\r\n\r\n...is a browser-based multilingual IMAP client with an application-like user interface. It provides full functionality you expect from an email client, including MIME support, address book, folder manipulation, message searching and spell checking."
       },
       "license": {
         "label": "GNU GENERAL PUBLIC LICENSE V3",
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
-    }
+    },
+    "timestamp": "2017-09-21T17:08:50+10:00"
   },
   "software": {
     "base": {
       "name": "roundcube",
       "framework": "apache_php",
-      "memory": {
-        "required": "96",
-        "recommended": "128"
-      },
-      "http_protocol": "https_only",
-      "framework_port_override": "",
       "deployment_type": "web",
-      "web_root_directory": "",
-      "continuous_deployment": false,
-      "install_form_comment": "",
-      "first_run_url": "",
-      "installation_report": ""
+      "http_protocol": "https_only",
+      "memory": {
+        "required": 96,
+        "recommended": 128
+      }
     },
-    "ports": [
-
-    ],
     "scripts": {
       "start": {
-        "language": "sh",
-        "content": ""
+        "language": "sh"
       },
       "install": {
         "language": "sh",
         "content": "mysql -h $dbhost -u $dbuser --password=$dbpasswd $dbname < /home/app/SQL/mysql.initial.sql\r\n\r\n\r\n#curl -sS https://getcomposer.org/installer | php\r\n#php composer.phar install --no-dev\r\n\r\n\r\n"
       },
       "post_install": {
-        "language": "sh",
-        "content": ""
+        "language": "sh"
       },
       "shutdown": {
-        "language": "sh",
-        "content": ""
+        "language": "sh"
       }
     },
-    "external_repositories": [
-
-    ],
     "system_packages": [
       {
-        "package": "mysql-client",
-        "version": ""
+        "package": "mysql-client"
       }
     ],
     "installed_packages": [
@@ -90,13 +72,11 @@
     "required_modules": [
       {
         "name": "expires",
-        "type": "apache",
-        "os_package": ""
+        "type": "apache"
       },
       {
         "name": "headers",
-        "type": "apache",
-        "os_package": ""
+        "type": "apache"
       },
       {
         "name": "mcrypt",
@@ -107,6 +87,11 @@
         "name": "intl",
         "type": "php",
         "os_package": "php-intl"
+      },
+      {
+        "name": "ldap",
+        "type": "php",
+        "os_package": "php-ldap"
       }
     ],
     "service_configurations": [
@@ -137,14 +122,11 @@
         }
       }
     ],
-    "environment_variables": [
-
-    ],
     "template_files": [
       {
         "path": "app/config/config.inc.php",
         "language": "text",
-        "content": "<?php\r\n\r\n\r\n$config = array();\r\n\r\n// log driver:  'syslog' or 'file'.\r\n$config['log_driver'] = 'syslog';\r\n// Log successful/failed logins to <log_dir>/userlogins or to syslog\r\n$config['log_logins'] = true;\r\n\r\n// Log session authentication errors to <log_dir>/session or to syslog\r\n$config['log_session'] = true;\r\n\r\n\r\n\r\n$config['db_dsnw'] = 'mysql://_Engines_Environment(dbuser):_Engines_Environment(dbpasswd)@_Engines_System(mysql_host)/_Engines_Environment(dbname)';\r\n\r\n$config['default_host'] = 'imap.engines.internal';\r\n$config['default_port'] = 10143;\r\n$config['imap_auth_type'] ='plain';\r\n\r\n$config['smtp_server'] = '_Engines_System(smtp_host)';\r\n$config['smtp_port'] = 25;\r\n$config['smtp_user'] = '';\r\n\r\n// SMTP password (if required) if you use %p as the password Roundcube\r\n// will use the current user's password for login\r\n$config['smtp_pass'] = '';\r\n\r\n// provide an URL where a user can get support for this Roundcube installation\r\n// PLEASE DO NOT LINK TO THE ROUNDCUBE.NET WEBSITE HERE!\r\n$config['support_url'] = '';\r\n\r\n// Name your service. This is displayed on the login screen and in the window title\r\n$config['product_name'] = 'Roundcube Webmail';\r\n\r\n// this key is used to encrypt the users imap password which is stored\r\n// in the session record (and the client cookie if remember password is enabled).\r\n// please provide a string of exactly 24 chars.\r\n// YOUR KEY MUST BE DIFFERENT THAN THE SAMPLE VALUE FOR SECURITY REASONS\r\n$config['des_key'] = '_Engines_System(random(24))';\r\n\r\n// List of active plugins (in plugins/ directory)\r\n$config['plugins'] = array(\r\n    'archive',\r\n    'zipdownload',\r\n);\r\n\r\n\r\n$config['skin'] = 'larry';\r\n\r\n\r\n"
+        "content": "<?php\r\n\r\n\r\n$config = array();\r\n\r\n// log driver:  'syslog' or 'file'.\r\n$config['log_driver'] = 'syslog';\r\n// Log successful/failed logins to <log_dir>/userlogins or to syslog\r\n$config['log_logins'] = true;\r\n\r\n// Log session authentication errors to <log_dir>/session or to syslog\r\n$config['log_session'] = true;\r\n\r\n\r\n\r\n$config['db_dsnw'] = 'mysql://_Engines_Environment(dbuser):_Engines_Environment(dbpasswd)@_Engines_System(mysql_host)/_Engines_Environment(dbname)';\r\n\r\n$config['default_host'] = 'imap.engines.internal';\r\n$config['default_port'] = 10143;\r\n$config['imap_auth_type'] ='plain';\r\n\r\n$config['smtp_server'] = '_Engines_System(smtp_host)';\r\n$config['smtp_port'] = 25;\r\n$config['smtp_user'] = '';\r\n\r\n// SMTP password (if required) if you use %p as the password Roundcube\r\n// will use the current user's password for login\r\n$config['smtp_pass'] = '';\r\n\r\n// provide an URL where a user can get support for this Roundcube installation\r\n// PLEASE DO NOT LINK TO THE ROUNDCUBE.NET WEBSITE HERE!\r\n$config['support_url'] = '';\r\n\r\n// Name your service. This is displayed on the login screen and in the window title\r\n$config['product_name'] = 'Roundcube Webmail';\r\n\r\n// this key is used to encrypt the users imap password which is stored\r\n// in the session record (and the client cookie if remember password is enabled).\r\n// please provide a string of exactly 24 chars.\r\n// YOUR KEY MUST BE DIFFERENT THAN THE SAMPLE VALUE FOR SECURITY REASONS\r\n$config['des_key'] = '_Engines_System(random(24))';\r\n\r\n// List of active plugins (in plugins/ directory)\r\n$config['plugins'] = array(\r\n    'archive',\r\n    'zipdownload', \t \r\n 'managesieve' \t\r\n);\r\n\r\n\r\n$config['skin'] = 'larry';\r\n\r\n\r\n"
       },
       {
         "path": "app/composer.json",
@@ -152,13 +134,8 @@
         "content": "{\r\n    \"name\": \"roundcube/roundcubemail\",\r\n    \"description\": \"The Roundcube Webmail suite\",\r\n    \"license\": \"GPL-3.0+\",\r\n    \"repositories\": [\r\n        {\r\n            \"type\": \"pear\",\r\n            \"url\": \"http://pear.php.net/\"\r\n        },\r\n        {\r\n            \"type\": \"composer\",\r\n            \"url\": \"http://plugins.roundcube.net/\"\r\n        },\r\n        {\r\n            \"type\": \"vcs\",\r\n            \"url\": \"git://git.kolab.org/git/pear/Net_LDAP3\"\r\n        },\r\n        {\r\n            \"type\": \"package\",\r\n            \"package\": {\r\n                \"name\": \"Net_SMTP\",\r\n                \"version\": \"dev-master\",\r\n                \"source\": {\r\n                    \"url\": \"http://github.com/pear/Net_SMTP\",\r\n                    \"type\": \"git\",\r\n                    \"reference\": \"master\"\r\n                }\r\n            }\r\n        }\r\n    ],\r\n    \"require\": {\r\n        \"php\": \">=5.3.7\",\r\n        \"roundcube/plugin-installer\": \">=0.1.5\",\r\n        \"pear/mail_mime\": \">=1.8.9\",\r\n        \"pear/mail_mime-decode\": \">=1.5.5\",\r\n        \"pear/net_smtp\": \"dev-master\",\r\n        \"pear-pear.php.net/auth_sasl\": \">=1.0.6\",\r\n        \"pear-pear.php.net/net_idna2\": \">=0.1.1\",\r\n        \"pear-pear.php.net/net_sieve\": \">=1.3.2\",\r\n        \"patchwork/utf8\": \"1.2.x\"\r\n    },\r\n    \"require-dev\": {\r\n        \"pear-pear.php.net/crypt_gpg\": \"*\",\r\n        \"phpunit/phpunit\": \"*\"\r\n    },\r\n    \"suggest\": {\r\n        \"pear-pear.php.net/net_ldap2\": \">=2.0.12 required for connecting to LDAP address books\",\r\n        \"kolab/Net_LDAP3\": \"dev-master required for connecting to LDAP address books\"\r\n    },\r\n    \"minimum-stability\": \"dev\"\r\n}\r\n"
       }
     ],
-    "replacement_strings": [
-
-    ],
     "database_seed": {
-      "language": "text",
-      "content": "",
-      "script": false
+      "language": "text"
     },
     "file_write_permissions": [
       {
@@ -170,46 +147,17 @@
         "recursive": true
       }
     ],
-    "persistent_directories": [
-
-    ],
     "persistent_files": [
       {
         "path": "app/config/config.inc.php"
       }
     ],
-    "components": {
-      "sources": [
-
-      ],
-      "path": "",
-      "extract": false
-    },
-    "workers": {
-      "blocking": "",
-      "commands": [
-
+    "framework_specific": {
+      "custom_php_inis": [
+        {
+          "content": "error_reporting E_ALL & ~E_NOTICE (or lower)\r\n\r\nfile_uploads enabled\r\nsession.auto_start disabled\r\nsuhosin.session.encrypt disabled\r\nmbstring.func_overload disabled\r\nmagic_quotes_runtime disabled\r\nmagic_quotes_sybase disabled\r\n  php_value       upload_max_filesize    16M\r\n\r\n"
+        }
       ]
-    },
-    "rake_tasks": [
-
-    ],
-    "custom_php_inis": [
-      {
-        "content": "error_reporting E_ALL & ~E_NOTICE (or lower)\r\n\r\nfile_uploads enabled\r\nsession.auto_start disabled\r\nsuhosin.session.encrypt disabled\r\nmbstring.func_overload disabled\r\nmagic_quotes_runtime disabled\r\nmagic_quotes_sybase disabled\r\n  php_value       upload_max_filesize    16M\r\n\r\n"
-      }
-    ],
-    "apache_htaccess_files": [
-
-    ],
-    "apache_httpd_configurations": [
-
-    ],
-    "actionators": [
-
-    ],
-    "schedules": [
-
-    ]
+    }
   }
 }
