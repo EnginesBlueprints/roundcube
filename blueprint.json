@@ -27,7 +27,7 @@
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2017-10-23T13:36:34+11:00"
+    "timestamp": "2017-10-23T17:07:32+11:00"
   },
   "software": {
     "base": {
@@ -92,6 +92,11 @@
         "name": "ldap",
         "type": "php",
         "os_package": "php-ldap"
+      },
+      {
+        "name": "zip",
+        "type": "php",
+        "os_package": "php-zip"
       }
     ],
     "service_configurations": [
