@@ -27,7 +27,7 @@
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2018-04-09T10:47:45+10:00"
+    "timestamp": "2019-04-10T14:16:03+10:00"
   },
   "software": {
     "base": {
@@ -77,11 +77,6 @@
       {
         "name": "headers",
         "type": "apache"
-      },
-      {
-        "name": "mcrypt",
-        "type": "php",
-        "os_package": "php-mcrypt"
       },
       {
         "name": "intl",
